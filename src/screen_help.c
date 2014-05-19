@@ -231,7 +231,7 @@ static void
 screen_help_paint_callback(WINDOW *w, unsigned i,
 			   unsigned y, unsigned width,
 			   G_GNUC_UNUSED bool selected,
-			   G_GNUC_UNUSED void *data)
+			   G_GNUC_UNUSED const void *data)
 {
 	const struct help_text_row *row = &help_text[i];
 

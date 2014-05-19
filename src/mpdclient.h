@@ -143,7 +143,9 @@ mpdclient_playlist_update_changes(struct mpdclient *c);
 bool
 mpdclient_filelist_add_all(struct mpdclient *c, struct filelist *fl);
 
-/* sort by list-format */
-gint compare_filelistentry_format(gconstpointer filelist_entry1, gconstpointer filelist_entry2);
+/* sort by song format */
+gint compare_filelistentry_format(gconstpointer filelist_entry1,
+				  gconstpointer filelist_entry2,
+				  const char *song_format);
 
 #endif

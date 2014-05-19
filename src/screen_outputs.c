@@ -179,7 +179,7 @@ outputs_title(G_GNUC_UNUSED char *str, G_GNUC_UNUSED size_t size)
 static void
 screen_outputs_paint_callback(WINDOW *w, unsigned i,
 			      G_GNUC_UNUSED unsigned y, unsigned width,
-			      bool selected, G_GNUC_UNUSED void *data)
+			      bool selected, G_GNUC_UNUSED const void *data)
 {
 	const struct mpd_output *output;
 

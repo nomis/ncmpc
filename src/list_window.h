@@ -40,7 +40,7 @@ typedef void
 (*list_window_paint_callback_t)(WINDOW *w, unsigned i,
 				unsigned y, unsigned width,
 				bool selected,
-				void *data);
+				const void *data);
 
 struct list_window {
 	WINDOW *w;
@@ -99,7 +99,7 @@ void list_window_paint(const struct list_window *lw,
 void
 list_window_paint2(const struct list_window *lw,
 		   list_window_paint_callback_t paint_callback,
-		   void *callback_data);
+		   const void *callback_data);
 
 /* perform basic list window commands (movement) */
 bool

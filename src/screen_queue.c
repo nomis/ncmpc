@@ -512,7 +512,7 @@ screen_queue_title(char *str, size_t size)
 static void
 screen_queue_paint_callback(WINDOW *w, unsigned i,
 			    unsigned y, unsigned width,
-			    bool selected, G_GNUC_UNUSED void *data)
+			    bool selected, G_GNUC_UNUSED const void *data)
 {
 	const struct mpd_song *song;
 	struct hscroll *row_hscroll;
@@ -531,7 +531,7 @@ screen_queue_paint_callback(WINDOW *w, unsigned i,
 
 	paint_song_row(w, y, width, selected,
 		       (int)mpd_song_get_id(song) == current_song_id,
-		       song, row_hscroll);
+		       song, row_hscroll, options.list_format);
 }
 
 static void
