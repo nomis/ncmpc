@@ -27,6 +27,12 @@ void
 ncu_init();
 
 void
+ncu_suspend();
+
+void
+ncu_resume();
+
+void
 ncu_deinit();
 
 class ScopeCursesInit {

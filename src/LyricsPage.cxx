@@ -376,7 +376,7 @@ LyricsPage::Edit()
 	if (!Save())
 		return;
 
-	ncu_deinit();
+	ncu_suspend();
 
 	/* TODO: fork/exec/wait won't work on Windows, but building a command
 	   string for system() is too tricky */
@@ -384,7 +384,7 @@ LyricsPage::Edit()
 	pid_t pid = fork();
 	if (pid == -1) {
 		screen_status_printf(("%s (%s)"), _("Can't start editor"), strerror(errno));
-		ncu_init();
+		ncu_resume();
 		return;
 	} else if (pid == 0) {
 		execlp(editor, editor, path.c_str(), nullptr);
@@ -397,7 +397,7 @@ LyricsPage::Edit()
 		} while (ret == -1 && errno == EINTR);
 	}
 
-	ncu_init();
+	ncu_resume();
 
 	/* TODO: hardly portable */
 	if (WIFEXITED(status)) {

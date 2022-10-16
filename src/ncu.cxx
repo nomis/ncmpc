@@ -91,6 +91,18 @@ ncu_init()
 }
 
 void
+ncu_suspend()
+{
+	endwin();
+}
+
+void
+ncu_resume()
+{
+	refresh();
+}
+
+void
 ncu_deinit()
 {
 	endwin();
