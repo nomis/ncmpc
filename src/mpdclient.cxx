@@ -270,6 +270,7 @@ mpdclient::Disconnect() noexcept
 	events |= MPD_IDLE_ALL;
 }
 
+#if 0
 /**
  * Receive a "tagtypes" response and convert it to a #TagMask.
  */
@@ -343,6 +344,7 @@ SendTagWhitelist(struct mpd_connection *c, const TagMask whitelist) noexcept
 		mpd_command_list_end(c) &&
 		mpd_response_finish(c);
 }
+#endif
 
 bool
 mpdclient::OnConnected(struct mpd_connection *_connection) noexcept
@@ -370,6 +372,7 @@ mpdclient::OnConnected(struct mpd_connection *_connection) noexcept
 		return false;
 	}
 
+#if 0
 	if (enable_tag_whitelist &&
 	    !SendTagWhitelist(connection, tag_whitelist)) {
 		InvokeErrorCallback();
@@ -380,6 +383,7 @@ mpdclient::OnConnected(struct mpd_connection *_connection) noexcept
 			return false;
 		}
 	}
+#endif
 
 	source = new MpdIdleSource(GetEventLoop(), *connection, *this);
 	ScheduleEnterIdle();

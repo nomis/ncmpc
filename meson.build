@@ -210,7 +210,7 @@ is_linux = host_machine.system() == 'linux'
 is_windows = host_machine.system() == 'windows'
 
 thread_dep = dependency('threads')
-libmpdclient_dep = dependency('libmpdclient', version: '>= 2.16')
+libmpdclient_dep = dependency('libmpdclient', version: '>= 2.11')
 
 if not mini
   pcre_dep = dependency('libpcre2-8', required: get_option('regex'))
