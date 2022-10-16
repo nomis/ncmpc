@@ -26,9 +26,9 @@ flavors = {
             '-Ddocumentation=disabled',
         ],
         'env': {
-            'CC': 'clang',
-            'CXX': 'clang++',
-            'LDFLAGS': '-fuse-ld=lld',
+            'CC': 'clang-16',
+            'CXX': 'clang++-16',
+#            'LDFLAGS': '-fuse-ld=lld',
         },
     },
 
@@ -56,9 +56,9 @@ flavors = {
             '-Ddocumentation=disabled',
         ],
         'env': {
-            'CC': 'clang',
-            'CXX': 'clang++',
-            'LDFLAGS': '-fuse-ld=lld',
+            'CC': 'clang-16',
+            'CXX': 'clang++-16',
+#            'LDFLAGS': '-fuse-ld=lld',
         },
     },
 

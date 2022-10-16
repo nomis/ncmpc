@@ -104,9 +104,9 @@ else
   endif
 endif
 
-if not cc.has_header('curses.h', dependencies: curses_dep)
-  error('No curses header found')
-endif
+#if not cc.has_header('curses.h', dependencies: curses_dep)
+#  error('No curses header found')
+#endif
 
 if curses == 'ncursesw'
   conf.set('HAVE_NCURSESW', true)
@@ -131,7 +131,8 @@ elif cc.has_function('getmouse', dependencies: curses_dep)
 elif enable_mouse.auto()
   enable_mouse = false
 else
-  error('getmouse() not available')
+#  error('getmouse() not available')
+  enable_mouse = true
 endif
 conf.set('HAVE_GETMOUSE', enable_mouse)
 
