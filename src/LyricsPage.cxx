@@ -106,6 +106,7 @@ private:
 	void StartPluginCycle() noexcept;
 
 	void Load(const struct mpd_song &song) noexcept;
+	void LoadWithCache() noexcept;
 	void MaybeLoad(const struct mpd_song &new_song) noexcept;
 
 	void MaybeLoad(const struct mpd_song *new_song) noexcept {
@@ -267,6 +268,12 @@ LyricsPage::Load(const struct mpd_song &_song) noexcept
 		return;
 	}
 
+	LoadWithCache();
+}
+
+void
+LyricsPage::LoadWithCache() noexcept
+{
 	if (auto from_cache = cache.Load(artist, title); !from_cache.empty()) {
 		/* cached */
 		plugin_name = "cache";
@@ -290,7 +297,7 @@ LyricsPage::Reload()
 {
 	if (plugin_cycle == nullptr && artist != nullptr && title != nullptr) {
 		reloading = true;
-		StartPluginCycle();
+		LoadWithCache();
 		Repaint();
 	}
 }
