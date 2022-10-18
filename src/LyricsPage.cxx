@@ -380,7 +380,7 @@ LyricsPage::Edit()
 		}
 	}
 
-	if (!Save())
+	if (!options.lyrics_autosave && Save())
 		return;
 
 	ncu_suspend();
